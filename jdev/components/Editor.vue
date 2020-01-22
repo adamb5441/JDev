@@ -5,12 +5,10 @@
 </template>
 
 <script>
-import VJsoneditor from 'v-jsoneditor/src/index'
 
 export default {
   name: 'Editor',
     components: {
-        VJsoneditor
     },
     data() {
         return {
