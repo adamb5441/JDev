@@ -1,18 +1,20 @@
 <template>
   <div class="home">
-  
-    <Editor msg="Welcome to Your Vue.js App"/>
+    <UrlInput />
+    <Editor @inputEvent="inputHandler" msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Editor from '@/components/Editor.vue'
+import UrlInput from '@/components/UrlInput.vue'
 
 export default {
   name: 'home',
   components: {
-    Editor
+    Editor,
+    UrlInput
   },
   data: () => ({
     JSONdata: {},
@@ -20,8 +22,8 @@ export default {
     posturl: "" 
   }),
   methods: {
-    inputHandler(){
-
+    inputHandler(val){
+      this.JSONdata = val
     },
     getJSON(){
       axios({

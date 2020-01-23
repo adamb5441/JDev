@@ -18,6 +18,11 @@ export default {
             options: {mode: 'code'}
         }
     },
+    watch: {
+      json: () => {
+        this.$emit(this.json, inputEvent)
+      }
+    },
     methods: {
         onError() {
             console.log('error')
