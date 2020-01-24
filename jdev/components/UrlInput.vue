@@ -1,13 +1,17 @@
 <template>
-  <v-card>
-      <v-card-actions class="URL__card">
-            <v-text-field class="input__field" />
-            <v-select height="20px" outlined  single-line :items="types" ></v-select>
-            <div class="btn__container">
-                <v-btn >submit</v-btn>
-            </div>
-      </v-card-actions>
-  </v-card>
+          <v-row>
+          <v-col cols="12">
+              <div class="pa-8">
+                <v-text-field class="input__field" />
+                </div>
+                <div class="pa-2">
+                <v-select height="20px" outlined  single-line :items="types" ></v-select>
+                </div>
+                <div class="pa-2 btn__container">
+                    <v-btn >Go</v-btn>
+                </div>
+     </v-col>
+            </v-row>  
 </template>
 
 <script>
@@ -23,15 +27,11 @@ export default {
 
 <style>
 .btn__container{
-    height: 100%;
-    display: flex;
-    align-items: center
+
 }
 .URL__card{
     padding: 10px
 }
 .input__field{
-    margin-right: 30px;
-    width: 1600px;
 }
 </style>

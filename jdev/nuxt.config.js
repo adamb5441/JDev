@@ -30,7 +30,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~/plugins/v-jsoneditor.js', mode: 'client'}
+    { src: '~/plugins/v-jsoneditor.js', mode: 'client'},
+    { src: '~/plugins/v-clipboard.js', mode: 'client'}
   ],
   /*
   ** Nuxt.js dev-modules
@@ -79,7 +80,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    vendor: ['v-jsoneditor'],
+    vendor: ['v-jsoneditor', 'v-clipboard'],
     /*
     ** You can extend webpack config here
     */
