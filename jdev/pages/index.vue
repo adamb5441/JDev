@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <UrlInput />
+    <UrlInput :text="JSONdata" />
     <Editor @inputEvent="inputHandler" msg="Welcome to Your Vue.js App"/>
   </div>
 </template>

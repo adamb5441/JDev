@@ -19,8 +19,8 @@ export default {
         }
     },
     watch: {
-      json: () => {
-        this.$emit(this.json, inputEvent)
+      json: function(){
+        this.$emit("inputEvent", this.json)
       }
     },
     methods: {
