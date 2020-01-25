@@ -1,8 +1,11 @@
 const express = require('express')
 const consola = require('consola')
+const axios = require('axios')
+const bodyparser = require ('body-parser');
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
-
+app.use(bodyparser.json())
+OutsSideController = require('./OutsideController')
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
