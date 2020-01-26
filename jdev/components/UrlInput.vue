@@ -2,11 +2,11 @@
     <v-card class="card__layout">
         <v-row>
                 <v-col class="input___container" sm="6">
-                    <v-text-field outlined class="input__field" />
-                    <v-btn height="56px">Go</v-btn>
+                    <v-text-field v-model="url" outlined class="input__field" />
+                    <v-btn @click="send" height="56px">Go</v-btn>
                 </v-col>
                 <v-col sm="2">
-                    <v-select fullwidth height="20px" outlined  single-line :items="types" ></v-select>
+                    <v-select v-model="type" fullwidth height="20px" outlined  single-line :items="types" ></v-select>
                 </v-col>
         </v-row>  
         <v-row>
@@ -25,7 +25,14 @@ export default {
     },
     data: function(){
         return{
+            url: "",
+            type: "",
             types: ["post", "get"]
+        }
+    },
+    methods: {
+        send(){
+            this.$emit("sendEvent", {url: this.url, event: this.type})
         }
     }
 }

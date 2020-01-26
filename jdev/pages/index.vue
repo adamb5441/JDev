@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <UrlInput :text="JSONdata" />
+    <UrlInput @sendEvent="sendHandler" :text="JSONdata" />
     <Editor @inputEvent="inputHandler" msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
@@ -22,21 +22,19 @@ export default {
     posturl: "" 
   }),
   methods: {
+    sendHandler(request){
+      this[request.event](request)
+    },
     inputHandler(val){
       this.JSONdata = val
     },
-    getJSON(){
-      axios({
-        method: "get",
-        url: ""
-      })
+    async get(request){
+      const res = this.$axios.$put("/api/getJSON", {url: request.url})
+      console.log(res)
     },
-    postJSON(){
-      axios({
-        method: "post",
-        url: "",
-        data: ""
-      })
+    post(request){
+      const res = this.$axios.$post(`/api/postJSON/${request.url}`, {data: this.JSONdata})
+      console.log(res)
     }
   }
 }
