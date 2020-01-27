@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <UrlInput @sendEvent="sendHandler" :text="JSONdata" />
-    <Editor @inputEvent="inputHandler" msg="Welcome to Your Vue.js App"/>
+    <Editor @inputEvent="inputHandler" :jData="JSONdata" />
   </div>
 </template>
 
@@ -29,12 +29,13 @@ export default {
       this.JSONdata = val
     },
     async get(request){
-      const res = this.$axios.$put("/api/getJSON", {url: request.url})
-      console.log(res)
+      this.$axios.$post("/api/getJSON", {url: request.url}).then(res => {
+        this.JSONdata = res
+      })
     },
     post(request){
-      const res = this.$axios.$post(`/api/postJSON/${request.url}`, {data: this.JSONdata})
-      console.log(res)
+      const res = this.$axios.$post(`/api/postJSON`, {url: request.url, data: this.JSONdata})
+      
     }
   }
 }

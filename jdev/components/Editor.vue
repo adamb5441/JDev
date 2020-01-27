@@ -10,15 +10,19 @@ export default {
   name: 'Editor',
     components: {
     },
+    props: {
+      jData: Object
+    },
     data() {
         return {
-            json: {
-                "hello": "vue"
-            },
+            json: {},
             options: {mode: 'code'}
         }
     },
     watch: {
+      jData: function(){
+        this.json = this.jData
+      },
       json: function(){
         this.$emit("inputEvent", this.json)
       }

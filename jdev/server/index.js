@@ -23,7 +23,8 @@ async function start () {
   } else {
     await nuxt.ready()
   }
-  app.put("/api/getJSON", OutsSideController.getJSON)
+  app.get("/status", OutsSideController.checkStatus)
+  app.post("/api/getJSON", OutsSideController.getJSON)
   app.post("/api/postJSON", OutsSideController.sendJSON)
   // Give nuxt middleware to express
   app.use(nuxt.render)
