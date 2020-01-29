@@ -19,7 +19,8 @@ export default {
   data: () => ({
     JSONdata: {},
     geturl: "",
-    posturl: "" 
+    posturl: "",
+    success: false
   }),
   methods: {
     sendHandler(request){
@@ -34,8 +35,9 @@ export default {
       })
     },
     post(request){
-      const res = this.$axios.$post(`/api/postJSON`, {url: request.url, data: this.JSONdata})
-      
+      this.$axios.$post("/api/getJSON", {url: request.url, package: this.JSONdata}).then(res => {
+        this.success = true
+      })      
     }
   }
 }

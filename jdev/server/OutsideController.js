@@ -12,6 +12,10 @@ module.exports={
         
     },
     sendJSON: (req,res) => {
-        res.status(200).send({[req.params]: req.body})
+        axios.post(req.body.url).then(response => {
+            res.status(200).send(true)
+        }).catch(err => {
+            res.status(404).send(`failed to reach source with message: ${err}`)
+        })
     }
 }
