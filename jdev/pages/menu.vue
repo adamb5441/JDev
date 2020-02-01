@@ -1,19 +1,23 @@
 <template>
-  <v-layout>
+  <v-layout v-if="loggedIn">
     <v-flex class="text-center">
-      <img
-        src="/v.png"
-        alt="Vuetify.js"
-        class="mb-5"
-      >
-      <blockquote class="blockquote">
-        &#8220;First, solve the problem. Then, write the code.&#8221;
-        <footer>
-          <small>
-            <em>&mdash;John Johnson</em>
-          </small>
-        </footer>
-      </blockquote>
+      <v-card>
+
+      </v-card>
     </v-flex>
   </v-layout>
 </template>
+<script>
+export default {
+  name: "menu",
+  props: {
+    loggedIn: Boolean
+  },
+  data: function(){
+    return {
+      
+    }
+  }
+
+}
+</script>

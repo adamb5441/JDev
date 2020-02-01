@@ -59,7 +59,7 @@
     </v-app-bar>
     <v-content>
       <v-container>
-        <nuxt />
+        <nuxt :loggedIn="loggedIn" />
       </v-container>
     </v-content>
     <v-navigation-drawer
@@ -79,12 +79,6 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-footer
-      :fixed="fixed"
-      app
-    >
-      <span>&copy; 2019</span>
-    </v-footer>
   </v-app>
 </template>
 
@@ -92,6 +86,7 @@
 export default {
   data () {
     return {
+      loggedIn: false,
       clipped: false,
       drawer: false,
       fixed: false,

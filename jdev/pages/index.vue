@@ -12,6 +12,9 @@ import UrlInput from '@/components/UrlInput.vue'
 
 export default {
   name: 'home',
+  props: {
+    loggedIn: Boolean
+  },
   components: {
     Editor,
     UrlInput
